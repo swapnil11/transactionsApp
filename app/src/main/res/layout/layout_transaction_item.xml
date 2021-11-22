@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.content.Context" />
+        <variable
+            name="item"
+            type="com.example.finalplayground.domain.model.Transaction" />
+        <import type="com.example.finalplayground.ui.common.ExtensionsKt"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/transactionCategoryImageView"
+            app:shapeAppearanceOverlay="@style/roundedImageViewRounded"
+            android:background="@color/colorGrayBg"
+            android:layout_width="@dimen/thumbnail_img_width_height"
+            android:layout_height="@dimen/thumbnail_img_width_height"
+            android:scaleType="centerCrop"
+            android:adjustViewBounds="true"
+            android:importantForAccessibility="no"
+            android:layout_marginStart="@dimen/std_margin"
+            app:setDrawableAsPerCategory="@{item.category}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@drawable/icon_category_business" />
+
+        <TextView
+            android:id="@+id/transactionDescription"
+            style="@style/BlackStyle.TitleStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/std_margin"
+            android:ellipsize="end"
+            android:maxLines="3"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/amount"
+            app:layout_constraintStart_toEndOf="@+id/transactionCategoryImageView"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Paramount Film Studio Paramount Film StudioParamount Film StudioParamount Film StudioParamount Film StudioParamount Film Studio" />
+
+        <TextView
+            android:id="@+id/amount"
+            style="@style/BlackStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/std_margin"
+            android:layout_marginEnd="@dimen/std_margin"
+            android:layout_marginBottom="@dimen/std_margin"
+            android:maxLines="1"
+            android:text='@{ExtensionsKt.formattedAmount(item.amount, context)}'
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/transactionDescription"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:text="$14.49" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="@dimen/one_dp"
+            android:background="@drawable/divider"
+            android:layout_marginStart="@dimen/std_margin"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

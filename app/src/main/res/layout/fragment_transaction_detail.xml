@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="transaction"
+            type="com.example.finalplayground.domain.model.Transaction" />
+
+        <variable
+            name="atm"
+            type="com.example.finalplayground.domain.model.Atm"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <TextView
+            android:id="@+id/transactionStatus"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            style="@style/BlackStyle"
+            android:text="@string/pending_transaction_title"
+            android:visibility="@{transaction.isPending ? View.VISIBLE : View.GONE}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_margin="@dimen/std_margin"
+            />
+        <TextView
+            android:id="@+id/transactionLabel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            style="@style/BlackStyle"
+            android:textStyle="bold"
+            android:text="@string/transaction_description_label"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/transactionStatus"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="Transaction Description"
+            android:maxLines="1"
+            android:layout_margin="@dimen/std_margin" />
+
+        <TextView
+            android:id="@+id/transactionDescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            style="@style/BlackStyle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/transactionLabel"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="Transaction Description"
+            android:maxLines="3"
+            android:layout_marginTop="@dimen/std_tiny_margin"
+            android:layout_marginStart="@dimen/std_margin"
+            android:layout_marginEnd="@dimen/std_margin"/>
+
+        <TextView
+            android:id="@+id/transactionCategoryLabel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            style="@style/BlackStyle"
+            android:textStyle="bold"
+            android:text="@string/transaction_category_label"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/transactionDescription"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:maxLines="1"
+            android:layout_margin="@dimen/std_margin" />
+
+        <TextView
+            android:id="@+id/transactionCategory"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            style="@style/BlackStyle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/transactionCategoryLabel"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="Transaction Category"
+            android:maxLines="1"
+            android:layout_marginTop="@dimen/std_tiny_margin"
+            android:layout_marginStart="@dimen/std_margin"
+            android:layout_marginEnd="@dimen/std_margin" />
+
+        <TextView
+            android:id="@+id/transactionDateLabel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            style="@style/BlackStyle"
+            android:textStyle="bold"
+            android:text="@string/transaction_date_label"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/transactionCategory"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:maxLines="1"
+            android:layout_margin="@dimen/std_margin" />
+
+        <TextView
+            android:id="@+id/transactionDate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            style="@style/BlackStyle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/transactionDateLabel"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="Transaction Date"
+            android:maxLines="1"
+            android:layout_marginTop="@dimen/std_tiny_margin"
+            android:layout_marginStart="@dimen/std_margin"
+            android:layout_marginEnd="@dimen/std_margin" />
+
+        <TextView
+            android:id="@+id/atmNameLabel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            style="@style/BlackStyle"
+            android:textStyle="bold"
+            android:text="@string/atm_name_label"
+            android:visibility="@{atm != null ? View.VISIBLE : View.GONE}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/transactionDate"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:maxLines="1"
+            android:layout_margin="@dimen/std_margin" />
+
+        <TextView
+            android:id="@+id/atmLocation"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            style="@style/BlackStyle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/atmNameLabel"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="Atm name"
+            android:text="@{atm.name}"
+            android:visibility="@{atm != null ? View.VISIBLE : View.GONE}"
+            android:maxLines="2"
+            android:layout_marginTop="@dimen/std_tiny_margin"
+            android:layout_marginStart="@dimen/std_margin"
+            android:layout_marginEnd="@dimen/std_margin" />
+
+        <TextView
+            android:id="@+id/atmAddressLabel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            style="@style/BlackStyle"
+            android:textStyle="bold"
+            android:visibility="@{atm != null ? View.VISIBLE : View.GONE}"
+            android:text="@string/atm_location_label"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/atmLocation"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:maxLines="1"
+            android:layout_margin="@dimen/std_margin" />
+
+        <TextView
+            android:id="@+id/atmAddress"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            style="@style/BlackStyle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/atmAddressLabel"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="@{atm.address}"
+            android:visibility="@{atm != null ? View.VISIBLE : View.GONE}"
+            tools:text="Atm Location"
+            android:maxLines="2"
+            android:layout_marginTop="@dimen/std_tiny_margin"
+            android:layout_marginStart="@dimen/std_margin"
+            android:layout_marginEnd="@dimen/std_margin" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

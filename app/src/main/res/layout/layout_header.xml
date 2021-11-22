@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:importantForAccessibility="no"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/account_balance_label"
+        style="@style/HeaderStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/available_header"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/account_balance_amount"
+        style="@style/BlackStyle"
+        android:textStyle="bold"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/account_balance_label" />
+
+    <TextView
+        android:id="@+id/balance_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/BlackStyle.TitleStyle"
+        android:layout_marginStart="16dp"
+        android:maxLines="1"
+        android:layout_marginTop="8dp"
+        android:ellipsize="end"
+        android:text="@string/balance_label"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/balance_amount"
+        app:layout_constraintTop_toBottomOf="@+id/account_balance_amount"/>
+
+    <TextView
+        android:id="@+id/balance_amount"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        style="@style/HeaderStyle"
+        android:text="TextView"
+        android:maxLines="1"
+        android:layout_marginStart="@dimen/std_short_margin"
+        android:layout_marginEnd="@dimen/std_margin"
+        app:layout_constraintStart_toEndOf="@id/balance_label"
+        app:layout_constraintBaseline_toBaselineOf="@+id/balance_label"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/pending_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/BlackStyle.TitleStyle"
+        android:layout_marginStart="@dimen/std_margin"
+        android:maxLines="1"
+        android:layout_marginTop="8dp"
+        android:ellipsize="end"
+        android:text="@string/pending_label"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/pending_amount"
+        app:layout_constraintTop_toBottomOf="@+id/balance_label"/>
+
+    <TextView
+        android:id="@+id/pending_amount"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        style="@style/HeaderStyle"
+        android:text="TextView"
+        android:maxLines="1"
+        android:layout_marginStart="@dimen/std_short_margin"
+        android:layout_marginEnd="@dimen/std_margin"
+        app:layout_constraintStart_toEndOf="@id/pending_label"
+        app:layout_constraintBaseline_toBaselineOf="@+id/pending_label"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+    <TextView
+        android:id="@+id/account_details"
+        style="@style/HeaderStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/std_margin"
+        android:background="@drawable/border"
+        android:maxLines="1"
+        android:padding="@dimen/std_margin"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/pending_label"
+        app:layout_constraintVertical_bias="0.0" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
